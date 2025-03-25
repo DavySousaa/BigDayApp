@@ -1,0 +1,24 @@
+{
+  "originHash" : "8f5126b6df290b8e00ee4c744aea1406d1ca0127cc6c6ebd45d8b4cda2ba9fd6",
+  "pins" : [
+    {
+      "identity" : "iosdropdown",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jriosdev/iOSDropDown.git",
+      "state" : {
+        "revision" : "945c4f1945ed37a31055e812a5ee11a3d06e88ab",
+        "version" : "0.4.0"
+      }
+    },
+    {
+      "identity" : "tocropviewcontroller",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TimOliver/TOCropViewController",
+      "state" : {
+        "revision" : "a634cb7cdfd580006e79a6e74e64417fe9e9783b",
+        "version" : "2.7.4"
+      }
+    }
+  ],
+  "version" : 3
+}
