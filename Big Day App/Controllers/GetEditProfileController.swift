@@ -8,21 +8,37 @@
 import UIKit
 import TOCropViewController
 
-class GetPhotoController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TOCropViewControllerDelegate {
+class GetEditProfileController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TOCropViewControllerDelegate {
     
     @IBOutlet var profileImageView: UIImageView!
-    
     @IBOutlet var nickNameTextFi: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let savedImageData = UserDefaults.standard.data(forKey: "profileImageView"),
+            let savedImage = UIImage(data: savedImageData) {
+            profileImageView.image = savedImage
+        }
+        
         profileImageView.layer.cornerRadius = 100 / 2
         profileImageView.clipsToBounds = true
         profileImageView.contentMode = .scaleAspectFill
+        navigationItem.backButtonTitle = "Voltar"
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
             profileImageView.layer.cornerRadius = 100 / 2
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     // Método para abrir a galeria
@@ -74,13 +90,24 @@ class GetPhotoController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func getChanges(_ sender: UIButton) {
         if let vc = self.navigationController?.viewControllers.first(where: { $0 is TaskViewController }) as? TaskViewController {
             let newNickname = nickNameTextFi.text ?? ""
-                
-            UserDefaults.standard.set(newNickname, forKey: "nickname") // Salva no UserDefaults
-            UserDefaults.standard.synchronize() // Garante que o valor foi salvo imediatamente
-                
+            let newPhotoProfile = profileImageView?.image
+            
             vc.nickname = newNickname
-            self.navigationController?.popViewController(animated: true)
+            vc.nameUserLabel.text = newNickname
+            vc.profileImageView.image = newPhotoProfile
+            
+            if let newPhotoProfile = profileImageView?.image,
+               let imageData = newPhotoProfile.jpegData(compressionQuality: 0.8) {
+                UserDefaults.standard.set(imageData, forKey: "profileImageView")
+                UserDefaults.standard.synchronize()
+            }
+            
+            UserDefaults.standard.set(newNickname, forKey: "nickname")
+            UserDefaults.standard.synchronize()
+                
+            dismiss(animated: true, completion: nil)
         }
     }
 
 }
+

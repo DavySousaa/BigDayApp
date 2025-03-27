@@ -9,7 +9,7 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet var dayLabel: UILabel!
     @IBOutlet var nameUser: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
+
     var tasks: [Task] = []
     var nickname = ""
     
@@ -22,15 +22,15 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         
+        nickname = UserDefaults.standard.string(forKey: "nickname") ?? "Usuário"
+        if let savedImageData = UserDefaults.standard.data(forKey: "profileImageView"),
+            let savedImage = UIImage(data: savedImageData) {
+            profileImageView.image = savedImage
+        }
+        
         nameUserLabel.font = UIFont(name: "Montserrat-ExtraBold", size: 24)
         nameUser.font = UIFont(name: "Montserrat-ExtraBold", size: 24)
         let firstText = "Big Day do"
-        
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
         nameUser.text = nickname
         
         let attributedString = NSMutableAttributedString(string: nickname)
@@ -38,17 +38,21 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
         let range = NSRange(location: 0, length: nickname.count)
         attributedString.addAttribute(.foregroundColor, value: nameUserColor, range: range)
         nameUser.attributedText = attributedString
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let savedImageData = UserDefaults.standard.data(forKey: "profileImageView"),
+            let savedImage = UIImage(data: savedImageData) {
+            profileImageView.image = savedImage
+        }
         self.loadTasks()
-        print("TaskViewController criada!")
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
             profileImageView.layer.cornerRadius = 77 / 2
     }
-    
-    
-    
     
     private func loadTasks() {
         self.tasks = TaskSuportHelper().getTask()
@@ -119,6 +123,7 @@ extension TaskViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             self.tasks.remove(at: indexPath.row)
+            TaskSuportHelper().addTask(lista: self.tasks)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             completionHandler(true)
         }
