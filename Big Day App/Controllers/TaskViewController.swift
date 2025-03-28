@@ -12,6 +12,7 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
 
     var tasks: [Task] = []
     var nickname = ""
+    var prepoDoDa = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +31,10 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
         
         nameUserLabel.font = UIFont(name: "Montserrat-ExtraBold", size: 24)
         nameUser.font = UIFont(name: "Montserrat-ExtraBold", size: 24)
-        let firstText = "Big Day do"
-        nameUser.text = nickname
         
-        let attributedString = NSMutableAttributedString(string: nickname)
-        let nameUserColor = UIColor(hex: "#77D36A")
-        let range = NSRange(location: 0, length: nickname.count)
-        attributedString.addAttribute(.foregroundColor, value: nameUserColor, range: range)
-        nameUser.attributedText = attributedString
+        updatePrepo()
+        nicknameAttributedString()
+        prepoAttributedString()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +49,24 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
             profileImageView.layer.cornerRadius = 77 / 2
+    }
+    
+    func nicknameAttributedString() {
+        nameUser.text = nickname
+        let attributedString = NSMutableAttributedString(string: nickname)
+        let nameUserColor = UIColor(hex: "#77D36A")
+        let range = NSRange(location: 0, length: nickname.count)
+        attributedString.addAttribute(.foregroundColor, value: nameUserColor, range: range)
+        nameUser.attributedText = attributedString
+    }
+    
+    func prepoAttributedString() {
+        var firstText = "Big Day do"
+        if firstText.contains("do") {
+            firstText = firstText.replacingOccurrences(of: "do", with: prepoDoDa)
+        }
+        let attributedString = NSMutableAttributedString(string: firstText)
+        nameUserLabel.attributedText = attributedString
     }
     
     private func loadTasks() {
@@ -84,6 +99,17 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
     
     func saveTasks() {
         TaskSuportHelper().addTask(lista: tasks)
+    }
+    
+    func updatePrepo() {
+        if let vc = self.navigationController?.viewControllers.first(where: { $0 is LoginViewController }) as? LoginViewController {
+            if vc.genderDropDown.text == "Feminino" {
+                prepoDoDa = "da"
+            } else {
+                prepoDoDa = "do"
+            }
+        }
+
     }
     
 }

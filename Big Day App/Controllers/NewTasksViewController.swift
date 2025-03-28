@@ -85,6 +85,11 @@ class NewTasksViewController: UIViewController {
     @IBAction func choseTime(_ sender: UISwitch) {
         timePicker.isHidden = !sender.isOn
     }
+    
+    @IBAction func cancelAddTask(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
 extension NewTasksViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
