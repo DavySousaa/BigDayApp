@@ -23,7 +23,8 @@ class NewTasksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.hidesBackButton = true
+
         textUP.font = UIFont(name: "Montserrat-ExtraBold", size: 30)
         let fullText = "Nova tarefa para \nseu Big Day!"
         let attributedString = NSMutableAttributedString(string: fullText)

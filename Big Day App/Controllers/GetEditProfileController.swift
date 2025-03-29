@@ -12,12 +12,22 @@ class GetEditProfileController: UIViewController, UIImagePickerControllerDelegat
     
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nickNameTextFi: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
+    var selectedIndex: IndexPath?
+    var apareceApp: [Aparence] = [
+        Aparence(id: 1, title: "Escuro", isCompleted: false),
+        Aparence(id: 2, title: "Claro", isCompleted: true),
+        Aparence(id: 3, title: "Automático", isCompleted: true)
+    ]
     var loginViewController: LoginViewController = LoginViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         
         if let savedImageData = UserDefaults.standard.data(forKey: "profileImageView"),
            let savedImage = UIImage(data: savedImageData) {
@@ -137,4 +147,36 @@ class GetEditProfileController: UIViewController, UIImagePickerControllerDelegat
             nickNameTextFi.placeholder = vc.nickname
         }
     }
+}
+
+extension GetEditProfileController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return apareceApp.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "aparenceCell", for: indexPath) as! AparenceCell
+        let itemAparence = apareceApp[indexPath.row]
+        cell.modoTextLabel.text = itemAparence.title
+        
+        if selectedIndex == indexPath {
+            cell.checkImage?.image = UIImage(systemName: "checkmark")
+        } else {
+            cell.checkImage?.image = .none
+        }
+        
+        return cell
+    }
+}
+
+extension GetEditProfileController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? AparenceCell {
+            selectedIndex = indexPath
+            tableView.reloadData()
+        }
+    }
+    
 }
