@@ -3,6 +3,7 @@ import TOCropViewController
 
 class TaskViewController: UIViewController, UINavigationControllerDelegate {
     
+    //MARK - @IBOutlet
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameUserLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
@@ -10,10 +11,12 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet var nameUser: UILabel!
     @IBOutlet weak var tableView: UITableView!
 
+    //MARK - Var and Lets
     var tasks: [Task] = []
     var nickname = ""
     var prepoDoDa = ""
     
+    //MARK - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLabelDate()
@@ -51,6 +54,13 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
             profileImageView.layer.cornerRadius = 77 / 2
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? EditViewController {
+            controller.delegate = self
+        }
+    }
+    
+    //MARK - Funcions
     func nicknameAttributedString() {
         nameUser.text = nickname
         let attributedString = NSMutableAttributedString(string: nickname)
@@ -69,7 +79,7 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
         nameUserLabel.attributedText = attributedString
     }
     
-    private func loadTasks() {
+    func loadTasks() {
         self.tasks = TaskSuportHelper().getTask()
         self.tableView?.reloadData()
     }
@@ -86,16 +96,7 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
         formatter.dateFormat = "dd 'de' MMMM"
         dateLabel.text = formatter.string(from: currentDate)
     }
-   
     
-    @IBAction func cleanTasks(_ sender: UIButton) {
-        tasks.removeAll()  // Remove as tarefas da lista
-        saveTasks()  // Salva as tarefas no UserDefaults
-        tableView.reloadData()  // Atualiza a tableView
-    }
-    
-    @IBAction func newTaskButton(_ sender: UIButton) {
-    }
     
     func saveTasks() {
         TaskSuportHelper().addTask(lista: tasks)
@@ -112,6 +113,32 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
 
     }
     
+    func switchEditBtn() {
+        let storyboard = UIStoryboard(name: "EditMenu", bundle: nil)
+        if let editVC = storyboard.instantiateViewController(withIdentifier: "EditViewController") as? EditViewController {
+            editVC.delegate = self
+            present(editVC, animated: true, completion: nil)
+        }
+    }
+   
+    //MARK - @IBAction
+    @IBAction func cleanTasks(_ sender: UIButton) {
+        tasks.removeAll()  // Remove as tarefas da lista
+        saveTasks()  // Salva as tarefas no UserDefaults
+        tableView.reloadData()  // Atualiza a tableView
+    }
+    
+    @IBAction func newTaskButton(_ sender: Any) {
+    }
+    
+}
+
+//MARK - Extensions
+
+extension TaskViewController: editTaskProtocol {
+    func saveEdit(nameEdited: String, timeEdited: String?) {
+        
+    }
 }
 
 extension TaskViewController: UITableViewDataSource {
@@ -154,11 +181,15 @@ extension TaskViewController: UITableViewDelegate {
             completionHandler(true)
         }
         
+        let editAction = UIContextualAction(style: .normal, title: "Editar") { (action, view, completionHandler) in
+            self.switchEditBtn()
+        }
+        
         deleteAction.image = UIImage(systemName: "trash")
         deleteAction.backgroundColor = .red
+        editAction.image = UIImage(systemName: "square.and.pencil")
+        editAction.backgroundColor = .black
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
 
-        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-    
 }
-

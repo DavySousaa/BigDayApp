@@ -424,7 +424,7 @@
                         <color key="badgeColor" red="0.1529411765" green="0.1529411765" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="j3L-o3-B7O">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape" catalog="system" style="plain" id="1P5-3V-Haf">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="slider.horizontal.3" catalog="system" style="plain" id="1P5-3V-Haf">
                             <color key="tintColor" red="0.1529411765" green="0.1529411765" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="9C9-kb-Ssf" kind="show" identifier="EditSegue" id="yLp-jG-Y18"/>
@@ -439,11 +439,22 @@
                         <outlet property="nameUserLabel" destination="v3x-eq-i9c" id="YX0-T5-6Xw"/>
                         <outlet property="profileImageView" destination="Vot-8I-9yz" id="bhO-To-IVs"/>
                         <outlet property="tableView" destination="lye-G3-l6B" id="lJo-bj-UIy"/>
+                        <segue destination="u57-ML-5RQ" kind="show" identifier="showEditViewController" id="u9c-5K-rp1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORH-mG-gDr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2532.8358208955224" y="-36.384439359267731"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="Jfa-8H-aiX">
+            <objects>
+                <viewControllerPlaceholder id="u57-ML-5RQ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fAc-wx-hGX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Fz-Wi-bVr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3134" y="248"/>
         </scene>
         <!--Get Edit Profile Controller-->
         <scene sceneID="ChJ-fA-89a">
@@ -730,7 +741,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x84-bc-bKb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3392.5373134328356" y="211.44164759725399"/>
+            <point key="canvasLocation" x="3531" y="207"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uL7-ch-o0g">
@@ -752,6 +763,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="yLp-jG-Y18"/>
         <segue reference="8lB-iq-fqw"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -759,11 +771,11 @@
         <image name="LOGOTIPO BIG DAY 2" width="676.15997314453125" height="258.54000854492188"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="circle" catalog="system" width="128" height="123"/>
-        <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="nonePhoto" width="600" height="600"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.square" catalog="system" width="128" height="114"/>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
