@@ -1,5 +1,13 @@
 # 🚀 Big Day App
 
+<div align="center">
+  <img src="https://img.shields.io/badge/Swift-iOS-orange?style=for-the-badge&logo=swift" />
+  <img src="https://img.shields.io/badge/Firebase-integrated-yellow?style=for-the-badge&logo=firebase" />
+  <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue?style=for-the-badge" />
+</div>
+
+<br />
+
 O **Big Day** é um aplicativo de produtividade desenvolvido em **Swift (UIKit)**, com foco em transformar um dia comum em um **Big Day** — um dia leve, produtivo e com propósito.
 
 ---
@@ -28,4 +36,3 @@ O **Big Day** é um aplicativo de produtividade desenvolvido em **Swift (UIKit)*
 - Auto Layout  
 - Swift Package Manager  
 - Animações e interações dinâmicas
-
