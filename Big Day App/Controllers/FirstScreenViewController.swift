@@ -9,9 +9,10 @@ import UIKit
 
 class FirstScreenViewController: UIViewController {
 
-    
+    //MARK - @IBOutlet
     @IBOutlet var textMainLabel: UILabel!
     
+    //MARK - LifeClycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,8 +35,24 @@ class FirstScreenViewController: UIViewController {
 
         textMainLabel.attributedText = attributedString
     }
+    @IBAction func createAccount(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "LoginScreen", bundle: nil)
+        if let LoginVC = storyboard.instantiateViewController(withIdentifier: "LoginScreen") as? LoginViewController {
+            navigationController?.pushViewController(LoginVC, animated: true)
+            
+        }
+    }
+    @IBAction func enterAccount(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "LoginTwoScreen", bundle: nil)
+        if let LoginVC = storyboard.instantiateViewController(withIdentifier: "LoginTwoScreen") as? LoginTwoScreenViewController {
+            navigationController?.pushViewController(LoginVC, animated: true)
+            
+        }
+    }
+    
 }
 
+//MARK - Extensions
 extension UIColor {
     convenience init(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

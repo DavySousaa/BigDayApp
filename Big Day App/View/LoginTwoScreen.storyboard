@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login Two Screen View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LoginTwoScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LoginTwoScreenViewController" customModule="Big_Day_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4C-6Z-Brw">
+                                <rect key="frame" x="46.666666666666657" y="749" width="300" height="34.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="KqL-Dw-g2W"/>
+                                    <constraint firstAttribute="height" constant="34.329999999999998" id="y4i-rm-cMm"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1335714757" green="0.1335714757" blue="0.1335714757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Entrar">
+                                    <backgroundConfiguration key="background" cornerRadius="100">
+                                        <color key="backgroundColor" red="0.1742278337" green="0.83160084489999997" blue="0.3821316957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startButtom:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZrO-pE-Q8w"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="W58-WK-hvn">
+                                <rect key="frame" x="30" y="383" width="333" height="82.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjD-Ww-BnV">
+                                        <rect key="frame" x="142.66666666666666" y="0.0" width="48" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcS-3D-rtP">
+                                        <rect key="frame" x="0.0" y="32.333333333333314" width="333" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="333" id="JWN-BW-aB9"/>
+                                            <constraint firstAttribute="height" constant="50" id="OyS-OA-z61"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZUR-EI-wcS">
+                                <rect key="frame" x="30" y="283" width="333" height="82.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKy-xo-b3K">
+                                        <rect key="frame" x="142.33333333333334" y="0.0" width="48.333333333333343" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dky-f8-mr7">
+                                        <rect key="frame" x="0.0" y="32.333333333333314" width="333" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="333" id="0sg-7W-Ega"/>
+                                            <constraint firstAttribute="height" constant="50" id="BI3-bk-9Cu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LOGOTIPO BIG DAY 2" translatesAutoresizingMaskIntoConstraints="NO" id="2wg-uB-zxy">
+                                <rect key="frame" x="117" y="150" width="158" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="uXC-hf-zK5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="W58-WK-hvn" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="BOg-wy-1p3"/>
+                            <constraint firstItem="W58-WK-hvn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="U49-TQ-lbu"/>
+                            <constraint firstItem="W58-WK-hvn" firstAttribute="top" secondItem="ZUR-EI-wcS" secondAttribute="bottom" constant="17.666666666666629" id="XsT-P5-2Pd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZUR-EI-wcS" secondAttribute="trailing" constant="30" id="XtU-u3-gyO"/>
+                            <constraint firstItem="ZUR-EI-wcS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="ZSU-Zi-ZfF"/>
+                            <constraint firstItem="z4C-6Z-Brw" firstAttribute="centerX" secondItem="2wg-uB-zxy" secondAttribute="centerX" id="a0U-dZ-tak"/>
+                            <constraint firstItem="ZUR-EI-wcS" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cbE-L5-hpZ"/>
+                            <constraint firstItem="2wg-uB-zxy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="dPu-Kj-xty"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="z4C-6Z-Brw" secondAttribute="bottom" constant="0.66666666666662877" id="eih-Y7-Kx7"/>
+                            <constraint firstItem="ZUR-EI-wcS" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="283" id="fDe-Ip-wAf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="W58-WK-hvn" secondAttribute="trailing" constant="30" id="knR-l4-dUe"/>
+                            <constraint firstItem="2wg-uB-zxy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="117" id="maB-Qi-zU7"/>
+                            <constraint firstItem="z4C-6Z-Brw" firstAttribute="centerX" secondItem="W58-WK-hvn" secondAttribute="centerX" id="wZx-LU-fXU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="dky-f8-mr7" id="6hg-QF-Xq2"/>
+                        <outlet property="enterBtn" destination="z4C-6Z-Brw" id="p8t-dK-GGp"/>
+                        <outlet property="passwordTextField" destination="vcS-3D-rtP" id="bVp-gg-7Qd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="189" y="-10"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LOGOTIPO BIG DAY 2" width="676.15997314453125" height="258.54000854492188"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

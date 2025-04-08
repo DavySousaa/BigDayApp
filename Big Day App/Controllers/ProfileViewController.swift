@@ -14,6 +14,4 @@ class ProfileViewController: UIViewController {
         navigationItem.hidesBackButton = true
        
     }
-   
-
 }

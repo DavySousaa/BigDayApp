@@ -9,7 +9,7 @@ import UIKit
 
 class NewTasksViewController: UIViewController {
     
-    
+    //MARK - @IBOutlet
     @IBOutlet var timePicker: UIDatePicker!
     @IBOutlet var hourLabel: UILabel!
     @IBOutlet var newTaskField: UITextField!
@@ -17,10 +17,11 @@ class NewTasksViewController: UIViewController {
     @IBOutlet var timeSwitch: UISwitch!
     @IBOutlet var textUP: UILabel!
     
+    //MARK - Var and Lets
     var taskController: TaskViewController = TaskViewController()
-    
     var tasks: [Task] = []
     
+    //MARK - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
@@ -45,11 +46,11 @@ class NewTasksViewController: UIViewController {
         
     }
     
-    @IBAction func addTask(_ sender: UIButton) {
-        createTask()
-        self.performSegue(withIdentifier: "unwindToTaskView", sender: self)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
+    //MARK - Functions
     private func createTask() {
         var list:[Task] = TaskSuportHelper().getTask()
         let selectedTime = getTime()
@@ -63,10 +64,6 @@ class NewTasksViewController: UIViewController {
         self.taskController.tableView?.reloadData()
         
         self.dismiss(animated: true)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
     }
     
     @objc func getTime() -> String {
@@ -83,8 +80,14 @@ class NewTasksViewController: UIViewController {
         return timeString
     }
     
+    //MARK - @IBAction
     @IBAction func choseTime(_ sender: UISwitch) {
         timePicker.isHidden = !sender.isOn
+    }
+    
+    @IBAction func addTask(_ sender: UIButton) {
+        createTask()
+        self.performSegue(withIdentifier: "unwindToTaskView", sender: self)
     }
     
     @IBAction func cancelAddTask(_ sender: UIBarButtonItem) {
@@ -92,6 +95,8 @@ class NewTasksViewController: UIViewController {
     }
     
 }
+
+//MARK - Extensions
 extension NewTasksViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

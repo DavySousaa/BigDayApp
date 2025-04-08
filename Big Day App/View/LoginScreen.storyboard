@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uYx-VN-m42">
+    <device id="retina6_3" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LoginScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="Big_Day_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XkD-Ou-hyl">
+                                <rect key="frame" x="29.666666666666657" y="261" width="342" height="400.33333333333326"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ScG-hh-oYu">
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="82.333333333333329"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apelido no App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNi-ct-lK8">
+                                                <rect key="frame" x="113" y="0.0" width="116.33333333333331" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uA1-iq-O2n">
+                                                <rect key="frame" x="4.6666666666666572" y="32.333333333333314" width="333" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="333" id="4iV-qe-9S2"/>
+                                                    <constraint firstAttribute="height" constant="50" id="ix3-3d-OKH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="p1p-sK-oeB">
+                                        <rect key="frame" x="0.0" y="98.333333333333314" width="342" height="82.333333333333314"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pe-yN-8s7">
+                                                <rect key="frame" x="147" y="0.0" width="48.333333333333343" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WK0-SF-6ID">
+                                                <rect key="frame" x="4.6666666666666572" y="32.333333333333371" width="333" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="CGw-1j-PZ2"/>
+                                                    <constraint firstAttribute="width" constant="333" id="P77-Kj-Thv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="CO5-U4-mtd">
+                                        <rect key="frame" x="0.0" y="196.66666666666669" width="342" height="82.333333333333314"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihr-XH-BJ2">
+                                                <rect key="frame" x="147" y="0.0" width="48" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="web-aG-mOw">
+                                                <rect key="frame" x="4.6666666666666572" y="32.333333333333314" width="333" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="b5R-rU-hp5"/>
+                                                    <constraint firstAttribute="width" constant="333" id="lNi-v9-ulN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="FgB-XV-1gh">
+                                        <rect key="frame" x="0.0" y="295" width="342" height="105.33333333333331"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gênero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOh-t4-wdF">
+                                                <rect key="frame" x="143" y="0.0" width="56" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mJE-Q4-qlr" customClass="DropDown" customModule="iOSDropDown">
+                                                <rect key="frame" x="4.6666666666666572" y="32.333333333333371" width="333" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="V45-Bd-Vbr"/>
+                                                    <constraint firstAttribute="width" constant="333" id="WuN-1P-LPS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O gênero serva para sabermos como tratar você dentro do App." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLI-om-hyj">
+                                                <rect key="frame" x="30.666666666666657" y="94.333333333333371" width="281" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfF-Di-PVp">
+                                <rect key="frame" x="50.666666666666657" y="757" width="300" height="34.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="7z0-cB-A2g"/>
+                                    <constraint firstAttribute="height" constant="34.329999999999998" id="c6Z-7L-x1d"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1335714757" green="0.1335714757" blue="0.1335714757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Criar conta">
+                                    <backgroundConfiguration key="background" cornerRadius="100">
+                                        <color key="backgroundColor" red="0.1742278337" green="0.83160084489999997" blue="0.3821316957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startButtom:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Xv5-9S-HJ7"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGOTIPO BIG DAY 2" translatesAutoresizingMaskIntoConstraints="NO" id="OHY-E6-vjl">
+                                <rect key="frame" x="126" y="117" width="150" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="MfZ-zW-Prh"/>
+                                    <constraint firstAttribute="width" constant="150" id="VDD-ch-ffO"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XkD-Ou-hyl" secondAttribute="trailing" constant="30.333333333333371" id="DGn-w6-vFf"/>
+                            <constraint firstItem="XkD-Ou-hyl" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="29.666666666666657" id="IVT-ow-Vkb"/>
+                            <constraint firstItem="yfF-Di-PVp" firstAttribute="centerX" secondItem="XkD-Ou-hyl" secondAttribute="centerX" id="KTV-Y7-TIU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="yfF-Di-PVp" secondAttribute="bottom" constant="14.666666666666742" id="WxB-Wh-kcZ"/>
+                            <constraint firstItem="OHY-E6-vjl" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="117" id="YQ5-F5-EnZ"/>
+                            <constraint firstItem="yfF-Di-PVp" firstAttribute="top" secondItem="XkD-Ou-hyl" secondAttribute="bottom" constant="95.666666666666742" id="g6j-sv-g9Z"/>
+                            <constraint firstItem="OHY-E6-vjl" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="uLO-qE-NpZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mfE-P4-M6h"/>
+                    <connections>
+                        <outlet property="apelidoTextField" destination="uA1-iq-O2n" id="o4m-uZ-yZD"/>
+                        <outlet property="emailTextField" destination="WK0-SF-6ID" id="0Up-uf-V7w"/>
+                        <outlet property="genderDropDown" destination="mJE-Q4-qlr" id="7xL-zW-ceP"/>
+                        <outlet property="passwordTextField" destination="web-aG-mOw" id="yY8-P6-ppR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12" y="-25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JHi-Ia-Jfz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uYx-VN-m42" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I0m-4n-rIi">
+                        <rect key="frame" x="0.0" y="124" width="402" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="fB3-GC-U1b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="60h-uj-dDC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-805.3435114503817" y="-25.35211267605634"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LOGOTIPO BIG DAY 2" width="676.15997314453125" height="258.54000854492188"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

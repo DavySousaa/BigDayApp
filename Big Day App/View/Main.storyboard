@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DMF-I9-Xh3">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--First Screen View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="FirstScreenViewController" customModule="Big_Day_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQM-Mk-PVH">
+                                <rect key="frame" x="50" y="203" width="293" height="111"/>
+                                <string key="text">Transformando
+dias comuns em 
+Big Day!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Rnd-ix-dkf">
+                                <rect key="frame" x="46.666666666666657" y="734" width="300" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="FirstID" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMv-VK-lsd">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="34.333333333333336"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34.329999999999998" id="5hb-Lg-yIH"/>
+                                            <constraint firstAttribute="width" constant="300" id="nGf-J0-u6n"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.1335714757" green="0.1335714757" blue="0.1335714757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Criar conta">
+                                            <backgroundConfiguration key="background" cornerRadius="100">
+                                                <color key="backgroundColor" red="0.1742278337" green="0.83160084489999997" blue="0.3821316957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </backgroundConfiguration>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="createAccount:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ae7-60-Kyv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgm-im-AYM">
+                                        <rect key="frame" x="84" y="38.333333333333371" width="132" height="25.666666666666671"/>
+                                        <color key="tintColor" red="0.1335714757" green="0.1335714757" blue="0.1335714757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Já possui conta? Entrar.">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="enterAccount:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kuD-c1-6xT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Zgm-im-AYM" firstAttribute="top" secondItem="gMv-VK-lsd" secondAttribute="bottom" constant="4" id="3TA-bQ-eYa"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="FOTO IPHONE" translatesAutoresizingMaskIntoConstraints="NO" id="9LF-NH-yUg">
+                                <rect key="frame" x="40" y="350" width="313" height="364"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGOTIPO BIG DAY 2" translatesAutoresizingMaskIntoConstraints="NO" id="USs-Y3-GYq">
+                                <rect key="frame" x="127" y="162" width="139" height="32"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BQM-Mk-PVH" firstAttribute="centerX" secondItem="USs-Y3-GYq" secondAttribute="centerX" id="14D-bZ-5q7"/>
+                            <constraint firstItem="USs-Y3-GYq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="127" id="5cK-i3-iFD"/>
+                            <constraint firstItem="9LF-NH-yUg" firstAttribute="top" secondItem="BQM-Mk-PVH" secondAttribute="bottom" constant="36" id="78D-F7-yqi"/>
+                            <constraint firstAttribute="bottom" secondItem="Rnd-ix-dkf" secondAttribute="bottom" constant="54" id="Bq6-nv-ai7"/>
+                            <constraint firstItem="BQM-Mk-PVH" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="203" id="J9J-3l-N1u"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9LF-NH-yUg" secondAttribute="trailing" constant="40" id="NF3-TG-dVO"/>
+                            <constraint firstItem="9LF-NH-yUg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="Qak-RV-tCC"/>
+                            <constraint firstItem="Rnd-ix-dkf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="UjW-ib-6T3"/>
+                            <constraint firstItem="Rnd-ix-dkf" firstAttribute="top" secondItem="9LF-NH-yUg" secondAttribute="bottom" constant="20" id="ftj-7u-cwF"/>
+                            <constraint firstItem="USs-Y3-GYq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="nqE-BY-WcH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="USs-Y3-GYq" secondAttribute="trailing" constant="127" id="q2y-qL-5qQ"/>
+                            <constraint firstItem="BQM-Mk-PVH" firstAttribute="top" secondItem="USs-Y3-GYq" secondAttribute="bottom" constant="9" id="trr-g6-w1W"/>
+                            <constraint firstItem="BQM-Mk-PVH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="usy-F7-Jqr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="au8-7n-GU5"/>
+                    <connections>
+                        <outlet property="textMainLabel" destination="BQM-Mk-PVH" id="9zj-5t-giX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968.70229007633588" y="3.5211267605633805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="48I-Iw-RRR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DMF-I9-Xh3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CDP-W1-EuZ">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="lfq-5A-91A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="byb-gb-Mxu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="41.984732824427482" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="FOTO IPHONE" width="966" height="1138"/>
+        <image name="LOGOTIPO BIG DAY 2" width="676.15997314453125" height="258.54000854492188"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

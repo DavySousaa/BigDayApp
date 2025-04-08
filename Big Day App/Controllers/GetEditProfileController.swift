@@ -10,10 +10,13 @@ import TOCropViewController
 
 class GetEditProfileController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TOCropViewControllerDelegate {
     
+    
+    //MARK - @IBOutlet
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nickNameTextFi: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
+    //MARK - Var and Lets
     var selectedIndex: IndexPath?
     var apareceApp: [Aparence] = [
         Aparence(id: 1, title: "Escuro", isCompleted: false),
@@ -22,6 +25,7 @@ class GetEditProfileController: UIViewController, UIImagePickerControllerDelegat
     ]
     var loginViewController: LoginViewController = LoginViewController()
     
+    //MARK - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
@@ -53,6 +57,7 @@ class GetEditProfileController: UIViewController, UIImagePickerControllerDelegat
         view.endEditing(true)
     }
     
+    //MARK - Funcions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -100,6 +105,19 @@ class GetEditProfileController: UIViewController, UIImagePickerControllerDelegat
         cropViewController.dismiss(animated: true, completion: nil)
     }
     
+    func placeholderOne() {
+        if let vc = self.navigationController?.viewControllers.first(where: { $0 is LoginViewController }) as? LoginViewController {
+            nickNameTextFi.placeholder = vc.apelidoTextField.text
+        }
+    }
+    
+    func placeholderTwo() {
+        if let vc = self.navigationController?.viewControllers.first(where: { $0 is TaskViewController }) as? TaskViewController {
+            nickNameTextFi.placeholder = vc.nickname
+        }
+    }
+    
+    //MARK - @IBAction
     @IBAction func editPhoto(_ sender: UIButton) {
         loadPhoto(for: profileImageView)
     }
@@ -136,19 +154,9 @@ class GetEditProfileController: UIViewController, UIImagePickerControllerDelegat
         navigationController?.popViewController(animated: true)
     }
     
-    func placeholderOne() {
-        if let vc = self.navigationController?.viewControllers.first(where: { $0 is LoginViewController }) as? LoginViewController {
-            nickNameTextFi.placeholder = vc.apelidoTextField.text
-        }
-    }
-    
-    func placeholderTwo() {
-        if let vc = self.navigationController?.viewControllers.first(where: { $0 is TaskViewController }) as? TaskViewController {
-            nickNameTextFi.placeholder = vc.nickname
-        }
-    }
 }
 
+//MARK - Extensions
 extension GetEditProfileController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

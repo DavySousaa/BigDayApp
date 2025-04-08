@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F320730A2D86214600702D5B /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = F32073092D86214600702D5B /* CropViewController */; };
-		F320730C2D86214600702D5B /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = F320730B2D86214600702D5B /* TOCropViewController */; };
-		F3647A242D792C3A00A1C585 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F3647A232D792C3A00A1C585 /* iOSDropDown */; };
+		F3AC37E32DA4AB86002B73CD /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F3AC37E22DA4AB86002B73CD /* iOSDropDown */; };
+		F3AC381D2DA4ACA9002B73CD /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = F3AC381C2DA4ACA9002B73CD /* CropViewController */; };
+		F3AC381F2DA4ACA9002B73CD /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = F3AC381E2DA4ACA9002B73CD /* TOCropViewController */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4468043FB6E8233070E56514 /* Pods_Big_Day_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Big_Day_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C2EF13100EE61247079894B /* Pods-Big Day App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Big Day App.debug.xcconfig"; path = "Target Support Files/Pods-Big Day App/Pods-Big Day App.debug.xcconfig"; sourceTree = "<group>"; };
+		A6730A75AE1B07815382D55D /* Pods-Big Day App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Big Day App.release.xcconfig"; path = "Target Support Files/Pods-Big Day App/Pods-Big Day App.release.xcconfig"; sourceTree = "<group>"; };
+		F3AC37662DA4A95E002B73CD /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3AC376A2DA4A987002B73CD /* Pods_Big_Day_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Big_Day_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BE13A12D57A4A7008081A0 /* Big Day App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Big Day App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -42,20 +47,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3647A242D792C3A00A1C585 /* iOSDropDown in Frameworks */,
-				F320730C2D86214600702D5B /* TOCropViewController in Frameworks */,
-				F320730A2D86214600702D5B /* CropViewController in Frameworks */,
+				F3AC37E32DA4AB86002B73CD /* iOSDropDown in Frameworks */,
+				F3AC381F2DA4ACA9002B73CD /* TOCropViewController in Frameworks */,
+				F3AC381D2DA4ACA9002B73CD /* CropViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		125A722B2984C2F5568A1276 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3AC376A2DA4A987002B73CD /* Pods_Big_Day_App.framework */,
+				F3AC37662DA4A95E002B73CD /* iOSDropDown.framework */,
+				4468043FB6E8233070E56514 /* Pods_Big_Day_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6EA566DE39606A036FF3EB99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C2EF13100EE61247079894B /* Pods-Big Day App.debug.xcconfig */,
+				A6730A75AE1B07815382D55D /* Pods-Big Day App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F3BE13982D57A4A7008081A0 = {
 			isa = PBXGroup;
 			children = (
 				F3BE13A32D57A4A7008081A0 /* Big Day App */,
 				F3BE13A22D57A4A7008081A0 /* Products */,
+				6EA566DE39606A036FF3EB99 /* Pods */,
+				125A722B2984C2F5568A1276 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,11 +112,6 @@
 				F3BE13A32D57A4A7008081A0 /* Big Day App */,
 			);
 			name = "Big Day App";
-			packageProductDependencies = (
-				F3647A232D792C3A00A1C585 /* iOSDropDown */,
-				F32073092D86214600702D5B /* CropViewController */,
-				F320730B2D86214600702D5B /* TOCropViewController */,
-			);
 			productName = "Big Day App";
 			productReference = F3BE13A12D57A4A7008081A0 /* Big Day App.app */;
 			productType = "com.apple.product-type.application";
@@ -120,8 +141,8 @@
 			mainGroup = F3BE13982D57A4A7008081A0;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F3647A222D792C3A00A1C585 /* XCRemoteSwiftPackageReference "iOSDropDown" */,
-				F32073082D86214600702D5B /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+				F3AC37E12DA4AB86002B73CD /* XCRemoteSwiftPackageReference "iOSDropDown" */,
+				F3AC381B2DA4ACA9002B73CD /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F3BE13A22D57A4A7008081A0 /* Products */;
@@ -353,39 +374,39 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F32073082D86214600702D5B /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
+		F3AC37E12DA4AB86002B73CD /* XCRemoteSwiftPackageReference "iOSDropDown" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/TimOliver/TOCropViewController";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.4;
-			};
-		};
-		F3647A222D792C3A00A1C585 /* XCRemoteSwiftPackageReference "iOSDropDown" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jriosdev/iOSDropDown.git";
+			repositoryURL = "https://github.com/jriosdev/iOSDropDown";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.4.0;
 			};
 		};
+		F3AC381B2DA4ACA9002B73CD /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F32073092D86214600702D5B /* CropViewController */ = {
+		F3AC37E22DA4AB86002B73CD /* iOSDropDown */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F32073082D86214600702D5B /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			package = F3AC37E12DA4AB86002B73CD /* XCRemoteSwiftPackageReference "iOSDropDown" */;
+			productName = iOSDropDown;
+		};
+		F3AC381C2DA4ACA9002B73CD /* CropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3AC381B2DA4ACA9002B73CD /* XCRemoteSwiftPackageReference "TOCropViewController" */;
 			productName = CropViewController;
 		};
-		F320730B2D86214600702D5B /* TOCropViewController */ = {
+		F3AC381E2DA4ACA9002B73CD /* TOCropViewController */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F32073082D86214600702D5B /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			package = F3AC381B2DA4ACA9002B73CD /* XCRemoteSwiftPackageReference "TOCropViewController" */;
 			productName = TOCropViewController;
-		};
-		F3647A232D792C3A00A1C585 /* iOSDropDown */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F3647A222D792C3A00A1C585 /* XCRemoteSwiftPackageReference "iOSDropDown" */;
-			productName = iOSDropDown;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
