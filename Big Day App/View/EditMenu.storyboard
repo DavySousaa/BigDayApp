@@ -17,12 +17,35 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJO-Q3-DNN">
-                                <rect key="frame" x="0.0" y="435" width="393" height="417"/>
+                                <rect key="frame" x="41" y="235" width="311" height="443"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTr-W1-f1E">
-                                        <rect key="frame" x="357" y="13" width="19" height="20"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Editar nome da tarefa" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ds-Av-cvg">
+                                        <rect key="frame" x="17" y="51" width="274" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="19" id="DXs-x3-PW5"/>
+                                            <constraint firstAttribute="height" constant="50" id="vbw-KM-ofq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8D4-MW-Ihk">
+                                        <rect key="frame" x="242" y="115" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="choseTime:" destination="Y6W-OH-hqX" eventType="valueChanged" id="84X-CO-0ic"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Editar horário?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48K-3s-swt">
+                                        <rect key="frame" x="17" y="120" width="111" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="61L-yC-nSy">
+                                        <rect key="frame" x="-4.3333333333333428" y="161" width="319.66666666666674" height="216"/>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTr-W1-f1E">
+                                        <rect key="frame" x="270" y="21" width="21" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="21" id="xEc-bC-GuQ"/>
                                         </constraints>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -31,16 +54,8 @@
                                             <action selector="closeWindow:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="w3L-q8-0uF"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Editar nome da tarefa" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ds-Av-cvg">
-                                        <rect key="frame" x="17" y="51" width="359" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="vbw-KM-ofq"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aN0-Wf-MzH">
-                                        <rect key="frame" x="88" y="335" width="217" height="40"/>
+                                        <rect key="frame" x="46" y="382" width="217" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="217" id="QD2-rA-b6L"/>
                                             <constraint firstAttribute="height" constant="40" id="zTr-jI-unT"/>
@@ -53,41 +68,27 @@
                                             </backgroundConfiguration>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="closeWindow:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nDd-XK-axX"/>
+                                            <action selector="saveEdit:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="h6Q-8a-w0i"/>
                                         </connections>
                                     </button>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8D4-MW-Ihk">
-                                        <rect key="frame" x="327" y="115" width="51" height="31"/>
-                                        <connections>
-                                            <action selector="choseTime:" destination="Y6W-OH-hqX" eventType="valueChanged" id="84X-CO-0ic"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Editar horário?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48K-3s-swt">
-                                        <rect key="frame" x="17" y="120" width="111" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="61L-yC-nSy">
-                                        <rect key="frame" x="36" y="149" width="320" height="170"/>
-                                    </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="1ds-Av-cvg" firstAttribute="leading" secondItem="MJO-Q3-DNN" secondAttribute="leading" constant="17" id="4o2-77-W5z"/>
-                                    <constraint firstItem="61L-yC-nSy" firstAttribute="leading" secondItem="MJO-Q3-DNN" secondAttribute="leading" constant="36" id="5ed-hk-Uiv"/>
-                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="bottom" secondItem="MJO-Q3-DNN" secondAttribute="bottomMargin" id="Bud-WQ-nlI"/>
-                                    <constraint firstItem="VTr-W1-f1E" firstAttribute="top" secondItem="MJO-Q3-DNN" secondAttribute="top" constant="13" id="Cuc-rc-4yg"/>
-                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="top" secondItem="61L-yC-nSy" secondAttribute="bottom" constant="16" id="D87-54-xMJ"/>
-                                    <constraint firstItem="61L-yC-nSy" firstAttribute="top" secondItem="8D4-MW-Ihk" secondAttribute="bottom" constant="3" id="FcR-ik-ur5"/>
+                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="bottom" secondItem="MJO-Q3-DNN" secondAttribute="bottomMargin" constant="-13" id="Bud-WQ-nlI"/>
                                     <constraint firstItem="8D4-MW-Ihk" firstAttribute="centerY" secondItem="48K-3s-swt" secondAttribute="centerY" id="Lb4-eG-k7c"/>
+                                    <constraint firstItem="VTr-W1-f1E" firstAttribute="trailing" secondItem="1ds-Av-cvg" secondAttribute="trailing" id="PRA-ce-hAy"/>
+                                    <constraint firstItem="61L-yC-nSy" firstAttribute="leading" secondItem="MJO-Q3-DNN" secondAttribute="leading" constant="-4.3333333333333428" id="Pvy-p7-4u0"/>
+                                    <constraint firstAttribute="trailing" secondItem="VTr-W1-f1E" secondAttribute="trailing" constant="20" symbolic="YES" id="dKk-Sx-OYB"/>
+                                    <constraint firstItem="VTr-W1-f1E" firstAttribute="top" secondItem="MJO-Q3-DNN" secondAttribute="top" constant="21" id="fmm-6L-cj6"/>
                                     <constraint firstItem="8D4-MW-Ihk" firstAttribute="trailing" secondItem="1ds-Av-cvg" secondAttribute="trailing" id="g6P-qq-vQ8"/>
-                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="centerX" secondItem="1ds-Av-cvg" secondAttribute="centerX" id="l0q-DF-vyQ"/>
-                                    <constraint firstItem="61L-yC-nSy" firstAttribute="top" secondItem="1ds-Av-cvg" secondAttribute="bottom" constant="48" id="nBd-fb-H8B"/>
+                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="centerX" secondItem="1ds-Av-cvg" secondAttribute="centerX" constant="0.5" id="l0q-DF-vyQ"/>
+                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="top" secondItem="61L-yC-nSy" secondAttribute="bottom" constant="5" id="mxB-ps-PyU"/>
                                     <constraint firstItem="48K-3s-swt" firstAttribute="leading" secondItem="1ds-Av-cvg" secondAttribute="leading" id="nft-2a-XPE"/>
-                                    <constraint firstItem="1ds-Av-cvg" firstAttribute="centerX" secondItem="MJO-Q3-DNN" secondAttribute="centerX" id="reK-Wr-AXZ"/>
-                                    <constraint firstItem="1ds-Av-cvg" firstAttribute="top" secondItem="VTr-W1-f1E" secondAttribute="bottom" constant="18" id="tlo-A9-LXV"/>
-                                    <constraint firstItem="1ds-Av-cvg" firstAttribute="trailing" secondItem="VTr-W1-f1E" secondAttribute="trailing" id="ue7-xe-N8E"/>
+                                    <constraint firstItem="61L-yC-nSy" firstAttribute="top" secondItem="8D4-MW-Ihk" secondAttribute="bottom" constant="15" id="p5J-dn-cun"/>
+                                    <constraint firstItem="1ds-Av-cvg" firstAttribute="top" secondItem="VTr-W1-f1E" secondAttribute="bottom" constant="10" id="qRe-mp-NbJ"/>
+                                    <constraint firstItem="61L-yC-nSy" firstAttribute="centerX" secondItem="MJO-Q3-DNN" secondAttribute="centerX" id="r9b-w0-xZF"/>
+                                    <constraint firstItem="1ds-Av-cvg" firstAttribute="centerX" secondItem="MJO-Q3-DNN" secondAttribute="centerX" constant="-1.5" id="reK-Wr-AXZ"/>
                                     <constraint firstItem="1ds-Av-cvg" firstAttribute="top" secondItem="MJO-Q3-DNN" secondAttribute="top" constant="51" id="xav-iK-jrK"/>
                                 </constraints>
                             </view>
@@ -95,9 +96,9 @@
                         <viewLayoutGuide key="safeArea" id="J3T-mS-ADw"/>
                         <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="MJO-Q3-DNN" secondAttribute="bottom" constant="-34" id="QID-wH-goU"/>
-                            <constraint firstItem="MJO-Q3-DNN" firstAttribute="top" secondItem="J3T-mS-ADw" secondAttribute="top" constant="376" id="kE0-f9-DK5"/>
-                            <constraint firstItem="MJO-Q3-DNN" firstAttribute="leading" secondItem="J3T-mS-ADw" secondAttribute="leading" id="nI7-qd-hvI"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="MJO-Q3-DNN" secondAttribute="bottom" constant="140" id="QID-wH-goU"/>
+                            <constraint firstItem="MJO-Q3-DNN" firstAttribute="top" secondItem="J3T-mS-ADw" secondAttribute="top" constant="176" id="kE0-f9-DK5"/>
+                            <constraint firstItem="MJO-Q3-DNN" firstAttribute="leading" secondItem="J3T-mS-ADw" secondAttribute="leading" constant="41" id="nI7-qd-hvI"/>
                             <constraint firstItem="MJO-Q3-DNN" firstAttribute="centerX" secondItem="pai-8M-lW2" secondAttribute="centerX" id="ozs-sJ-ziB"/>
                         </constraints>
                     </view>
@@ -105,6 +106,7 @@
                         <outlet property="cancelBtn" destination="VTr-W1-f1E" id="86e-nj-aRk"/>
                         <outlet property="editNameTextField" destination="1ds-Av-cvg" id="fz7-tB-Leb"/>
                         <outlet property="editTime" destination="61L-yC-nSy" id="3pH-Cd-jLa"/>
+                        <outlet property="myView" destination="MJO-Q3-DNN" id="NqG-hZ-VXT"/>
                         <outlet property="saveEdit" destination="aN0-Wf-MzH" id="wIM-3w-fWE"/>
                         <outlet property="switchTime" destination="8D4-MW-Ihk" id="x8O-i6-8vh"/>
                         <outlet property="textLabel" destination="48K-3s-swt" id="1z0-3r-Uhn"/>

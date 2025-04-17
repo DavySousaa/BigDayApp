@@ -47,13 +47,12 @@ class NewTasksViewController: UIViewController {
     
     @IBAction func addTask(_ sender: UIButton) {
         createTask()
-        self.performSegue(withIdentifier: "unwindToTaskView", sender: self)
     }
     
     private func createTask() {
         var list:[Task] = TaskSuportHelper().getTask()
         let selectedTime = getTime()
-        var task: Task = Task(id: list.count+1, title: newTaskField.text ?? "Nova tarefa", time: selectedTime ?? "", isCompleted: false)
+        var task: Task = Task(id: UUID(), title: newTaskField.text ?? "Nova tarefa", time: selectedTime, isCompleted: false)
         
         list.append(task)
         TaskSuportHelper().addTask(lista: list)

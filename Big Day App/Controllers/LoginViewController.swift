@@ -58,6 +58,7 @@ class LoginViewController: UIViewController {
         genderDropDown.optionArray = ["Masculino","Feminino"]
         self.genderDropDown.arrowSize = 5
         self.genderDropDown.selectedRowColor = .lightGray
+        self.genderDropDown.text = "Masculino"
         
         if genderDropDown.text == "Masculino" {
             doDaPrepo = "Do"

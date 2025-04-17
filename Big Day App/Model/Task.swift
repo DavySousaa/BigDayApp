@@ -7,12 +7,12 @@
 import Foundation
 
 class Task: Codable {
-    var id: Int
+    var id: UUID
     var title: String
     var time: String?
     var isCompleted: Bool
     
-    init(id: Int, title: String, time: String?, isCompleted: Bool = false) {
+    init(id: UUID, title: String, time: String?, isCompleted: Bool = false) {
         self.id = id
         self.title = title
         self.time = time

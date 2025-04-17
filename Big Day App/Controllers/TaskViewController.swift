@@ -15,7 +15,8 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
     var tasks: [Task] = []
     var nickname = ""
     var prepoDoDa = ""
-    
+    var selectedTaskID: UUID?
+
     //MARK - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,10 +114,13 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
 
     }
     
-    func switchEditBtn() {
+    func switchEditBtn(task: Task) {
         let storyboard = UIStoryboard(name: "EditMenu", bundle: nil)
         if let editVC = storyboard.instantiateViewController(withIdentifier: "EditViewController") as? EditViewController {
+            editVC.modalPresentationStyle = .overCurrentContext
+            editVC.modalTransitionStyle = .crossDissolve
             editVC.delegate = self
+            editVC.taskToEdit = task
             present(editVC, animated: true, completion: nil)
         }
     }
@@ -137,7 +141,15 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
 
 extension TaskViewController: editTaskProtocol {
     func saveEdit(nameEdited: String, timeEdited: String?) {
-        
+        guard let id = selectedTaskID else { return }
+                         
+        if let index = tasks.firstIndex(where: { $0.id == id }) {
+            tasks[index].title = nameEdited
+            tasks[index].time = timeEdited ?? ""
+                             
+            saveTasks()
+            tableView.reloadData()
+        }
     }
 }
 
@@ -182,7 +194,10 @@ extension TaskViewController: UITableViewDelegate {
         }
         
         let editAction = UIContextualAction(style: .normal, title: "Editar") { (action, view, completionHandler) in
-            self.switchEditBtn()
+            let task = self.tasks[indexPath.row]
+            self.selectedTaskID = task.id
+            self.switchEditBtn(task: task)
+            completionHandler(true)
         }
         
         deleteAction.image = UIImage(systemName: "trash")

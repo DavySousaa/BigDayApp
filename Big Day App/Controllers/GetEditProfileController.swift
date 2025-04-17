@@ -10,6 +10,7 @@ import TOCropViewController
 
 class GetEditProfileController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TOCropViewControllerDelegate {
     
+    @IBOutlet weak var tableViewThemeApp: UITableView!
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nickNameTextFi: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -25,9 +26,13 @@ class GetEditProfileController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        navigationItem.backButtonTitle = "Voltar"
+        navigationController?.navigationBar.tintColor = .black
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableViewThemeApp.dataSource = self
+        tableViewThemeApp.delegate = self
         
         if let savedImageData = UserDefaults.standard.data(forKey: "profileImageView"),
            let savedImage = UIImage(data: savedImageData) {
@@ -152,31 +157,57 @@ class GetEditProfileController: UIViewController, UIImagePickerControllerDelegat
 extension GetEditProfileController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return apareceApp.count
+        
+        if tableView == self.tableView {
+            return apareceApp.count
+        } else if tableView == self.tableViewThemeApp {
+            return 1
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "aparenceCell", for: indexPath) as! AparenceCell
-        let itemAparence = apareceApp[indexPath.row]
-        cell.modoTextLabel.text = itemAparence.title
-        
-        if selectedIndex == indexPath {
-            cell.checkImage?.image = UIImage(systemName: "checkmark")
+        if tableView == self.tableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "aparenceCell", for: indexPath) as! AparenceCell
+            let itemAparence = apareceApp[indexPath.row]
+            cell.modoTextLabel.text = itemAparence.title
+
+            if selectedIndex == indexPath {
+                cell.checkImage?.image = UIImage(systemName: "checkmark")
+            } else {
+                cell.checkImage?.image = .none
+            }
+
+            return cell
         } else {
-            cell.checkImage?.image = .none
+            let cell = tableView.dequeueReusableCell(withIdentifier: "themeCell", for: indexPath) as! TemaAppCell
+            cell.colorOne.layer.cornerRadius = 100
+            cell.colorTwo.layer.cornerRadius = 100
+            cell.colorOne.layer.masksToBounds = false
+            cell.colorTwo.layer.masksToBounds = false
+
+            return cell
         }
-        
-        return cell
     }
 }
 
 extension GetEditProfileController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? AparenceCell {
-            selectedIndex = indexPath
-            tableView.reloadData()
+        
+        if tableView == self.tableView {
+            if let cell = tableView.cellForRow(at: indexPath) as? AparenceCell {
+                selectedIndex = indexPath
+                tableView.reloadData()
+            }
+        } else if tableView == self.tableViewThemeApp {
+            if let cell = tableView.cellForRow(at: indexPath) as? TemaAppCell {
+                selectedIndex = indexPath
+                
+                tableView.reloadData()
+            }
         }
+        
     }
     
 }
