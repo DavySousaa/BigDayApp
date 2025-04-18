@@ -104,7 +104,7 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func updatePrepo() {
-        if let vc = self.navigationController?.viewControllers.first(where: { $0 is LoginViewController }) as? LoginViewController {
+        if let vc = self.navigationController?.viewControllers.first(where: { $0 is CreateAccountViewController }) as? CreateAccountViewController {
             if vc.genderDropDown.text == "Feminino" {
                 prepoDoDa = "da"
             } else {
@@ -124,12 +124,7 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
     }
    
     //MARK - @IBAction
-    @IBAction func cleanTasks(_ sender: UIButton) {
-        tasks.removeAll()  // Remove as tarefas da lista
-        saveTasks()  // Salva as tarefas no UserDefaults
-        tableView.reloadData()  // Atualiza a tableView
-    }
-    
+
     @IBAction func newTaskButton(_ sender: Any) {
     }
     

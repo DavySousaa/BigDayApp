@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		F320730A2D86214600702D5B /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = F32073092D86214600702D5B /* CropViewController */; };
 		F320730C2D86214600702D5B /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = F320730B2D86214600702D5B /* TOCropViewController */; };
+		F322BA4C2DB303D50032524B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F322BA4B2DB303D50032524B /* FirebaseAuth */; };
+		F322BA4E2DB303D50032524B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F322BA4D2DB303D50032524B /* FirebaseCore */; };
+		F322BA512DB306CC0032524B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F322BA502DB306CC0032524B /* FirebaseFirestore */; };
 		F3647A242D792C3A00A1C585 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F3647A232D792C3A00A1C585 /* iOSDropDown */; };
 /* End PBXBuildFile section */
 
@@ -43,18 +46,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3647A242D792C3A00A1C585 /* iOSDropDown in Frameworks */,
+				F322BA4E2DB303D50032524B /* FirebaseCore in Frameworks */,
 				F320730C2D86214600702D5B /* TOCropViewController in Frameworks */,
 				F320730A2D86214600702D5B /* CropViewController in Frameworks */,
+				F322BA4C2DB303D50032524B /* FirebaseAuth in Frameworks */,
+				F322BA512DB306CC0032524B /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F322BA4F2DB306CC0032524B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F3BE13982D57A4A7008081A0 = {
 			isa = PBXGroup;
 			children = (
 				F3BE13A32D57A4A7008081A0 /* Big Day App */,
+				F322BA4F2DB306CC0032524B /* Frameworks */,
 				F3BE13A22D57A4A7008081A0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +104,9 @@
 				F3647A232D792C3A00A1C585 /* iOSDropDown */,
 				F32073092D86214600702D5B /* CropViewController */,
 				F320730B2D86214600702D5B /* TOCropViewController */,
+				F322BA4B2DB303D50032524B /* FirebaseAuth */,
+				F322BA4D2DB303D50032524B /* FirebaseCore */,
+				F322BA502DB306CC0032524B /* FirebaseFirestore */,
 			);
 			productName = "Big Day App";
 			productReference = F3BE13A12D57A4A7008081A0 /* Big Day App.app */;
@@ -122,6 +139,7 @@
 			packageReferences = (
 				F3647A222D792C3A00A1C585 /* XCRemoteSwiftPackageReference "iOSDropDown" */,
 				F32073082D86214600702D5B /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+				F322BA4A2DB303D50032524B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F3BE13A22D57A4A7008081A0 /* Products */;
@@ -361,6 +379,14 @@
 				minimumVersion = 2.7.4;
 			};
 		};
+		F322BA4A2DB303D50032524B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.11.0;
+			};
+		};
 		F3647A222D792C3A00A1C585 /* XCRemoteSwiftPackageReference "iOSDropDown" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jriosdev/iOSDropDown.git";
@@ -381,6 +407,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F32073082D86214600702D5B /* XCRemoteSwiftPackageReference "TOCropViewController" */;
 			productName = TOCropViewController;
+		};
+		F322BA4B2DB303D50032524B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F322BA4A2DB303D50032524B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F322BA4D2DB303D50032524B /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F322BA4A2DB303D50032524B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		F322BA502DB306CC0032524B /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F322BA4A2DB303D50032524B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 		F3647A232D792C3A00A1C585 /* iOSDropDown */ = {
 			isa = XCSwiftPackageProductDependency;

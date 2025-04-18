@@ -1,69 +1,82 @@
 //
-//  loginViewController.swift
+//  LoginViewController.swift
 //  Big Day App
 //
-//  Created by Davy Sousa on 05/03/25.
+//  Created by Davy Sousa on 18/04/25.
 //
 
-import Foundation
 import UIKit
-import iOSDropDown
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
-    
-    @IBOutlet var apelidoTextField: UITextField!
+
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var genderDropDown: DropDown!
-
-    var doDaPrepo: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backBarButtonItem?.tintColor = .black
-        navigationItem.backButtonTitle = "Voltar"
-        self.configDropDown()
-        
+        configEyePassword()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    @IBAction func startButtom(_ sender: UIButton) {
-        if let vc = self.navigationController?.viewControllers.first(where: { $0 is TaskViewController }) as? TaskViewController {
-            let nickNameLogin = apelidoTextField.text ?? ""
-            
-            vc.loadViewIfNeeded()
-            vc.nickname = nickNameLogin
-            vc.nameUser.text = nickNameLogin
-            
-            let attributedString = NSMutableAttributedString(string: nickNameLogin)
-            let nameUserColor = UIColor(hex: "#77D36A")
-            let range = NSRange(location: 0, length: nickNameLogin.count)
-            attributedString.addAttribute(.foregroundColor, value: nameUserColor, range: range)
-            vc.nameUser.attributedText = attributedString
-            
-            UserDefaults.standard.set(nickNameLogin, forKey: "nickname")
-            UserDefaults.standard.synchronize()
-        }
+    func configEyePassword() {
+        let olhoButton = UIButton(type: .custom)
+        olhoButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        olhoButton.tintColor = .gray
+        olhoButton.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+        olhoButton.addTarget(self, action: #selector(toggleSenha), for: .touchUpInside)
+
+            // Coloca no lado direito do campo
+        passwordTextField.rightView = olhoButton
+        passwordTextField.rightViewMode = .always
     }
     
-    func configDropDown () {
-        genderDropDown.optionArray = ["Masculino","Feminino"]
-        self.genderDropDown.arrowSize = 5
-        self.genderDropDown.selectedRowColor = .lightGray
-        self.genderDropDown.text = "Masculino"
+    @objc func toggleSenha(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry.toggle()
         
-        if genderDropDown.text == "Masculino" {
-            doDaPrepo = "Do"
+        // Atualiza o ícone
+        let imageName = passwordTextField.isSecureTextEntry ? "eye.slash" : "eye"
+        sender.setImage(UIImage(systemName: imageName), for: .normal)
+    }
+    
+    private func validedField() -> String {
+        var error: String = String.empty()
+        
+        if self.emailTextField.text == String.empty() {
+            error = "Informe o seu e-mail."
+        } else  if self.passwordTextField.text == String.empty() {
+            error = "Informe a sua senha."
+        }
+        return error
+    }
+    
+    @IBAction func startButtom(_ sender: UIButton) {
+        let erro: String = self.validedField()
+        
+        if erro != String.empty() {
+            self.view.showMessage(view: self, message: erro)
         } else {
-            doDaPrepo = "Da"
+            // Pega os valores de email e senha
+            let email = emailTextField.text ?? ""
+            let password = passwordTextField.text ?? ""
+            
+            // Tenta fazer login no Firebase Authentication
+            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                if let error = error {
+                    // Caso ocorra algum erro
+                    self.view.showMessage(view: self, message: error.localizedDescription)
+                } else {
+                    // Se o login for bem-sucedido, navega para a próxima tela
+                    self.performSegue(withIdentifier: "toTasksSegueTwo", sender: nil)
+                }
+            }
         }
     }
 }

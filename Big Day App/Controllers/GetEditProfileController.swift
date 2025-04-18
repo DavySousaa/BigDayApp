@@ -142,7 +142,7 @@ class GetEditProfileController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func placeholderOne() {
-        if let vc = self.navigationController?.viewControllers.first(where: { $0 is LoginViewController }) as? LoginViewController {
+        if let vc = self.navigationController?.viewControllers.first(where: { $0 is CreateAccountViewController }) as? CreateAccountViewController {
             nickNameTextFi.placeholder = vc.apelidoTextField.text
         }
     }
