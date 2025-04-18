@@ -61,17 +61,12 @@ class EditViewController: UIViewController {
         return timeString
     }
     
-    //MARK - @IBAction
     private func configMyView() {
         myView.layer.cornerRadius = 16
-        myView.layer.shadowColor = UIColor.black.cgColor
-        myView.layer.shadowOpacity = 0.2
-        myView.layer.shadowOffset = CGSize(width: 0, height: 4)
-        myView.layer.shadowRadius = 10
         myView.layer.masksToBounds = false
-
     }
     
+    //MARK - @IBAction
     @IBAction func closeWindow(_ sender: UIButton) {
         self.dismiss(animated: true)
     }

@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJO-Q3-DNN">
-                                <rect key="frame" x="41" y="235" width="311" height="443"/>
+                                <rect key="frame" x="0.0" y="362" width="393" height="490"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Editar nome da tarefa" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ds-Av-cvg">
-                                        <rect key="frame" x="17" y="51" width="274" height="50"/>
+                                        <rect key="frame" x="17" y="51" width="361" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="vbw-KM-ofq"/>
                                         </constraints>
@@ -28,7 +28,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8D4-MW-Ihk">
-                                        <rect key="frame" x="242" y="115" width="51" height="31"/>
+                                        <rect key="frame" x="329" y="115" width="51" height="31"/>
                                         <connections>
                                             <action selector="choseTime:" destination="Y6W-OH-hqX" eventType="valueChanged" id="84X-CO-0ic"/>
                                         </connections>
@@ -40,10 +40,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="61L-yC-nSy">
-                                        <rect key="frame" x="-4.3333333333333428" y="161" width="319.66666666666674" height="216"/>
+                                        <rect key="frame" x="38" y="154" width="319.66666666666669" height="216"/>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTr-W1-f1E">
-                                        <rect key="frame" x="270" y="21" width="21" height="20"/>
+                                        <rect key="frame" x="357" y="18" width="21" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="21" id="xEc-bC-GuQ"/>
                                         </constraints>
@@ -55,7 +55,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aN0-Wf-MzH">
-                                        <rect key="frame" x="46" y="382" width="217" height="40"/>
+                                        <rect key="frame" x="89" y="378" width="217" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="217" id="QD2-rA-b6L"/>
                                             <constraint firstAttribute="height" constant="40" id="zTr-jI-unT"/>
@@ -75,20 +75,20 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="1ds-Av-cvg" firstAttribute="leading" secondItem="MJO-Q3-DNN" secondAttribute="leading" constant="17" id="4o2-77-W5z"/>
-                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="bottom" secondItem="MJO-Q3-DNN" secondAttribute="bottomMargin" constant="-13" id="Bud-WQ-nlI"/>
+                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="bottom" secondItem="MJO-Q3-DNN" secondAttribute="bottomMargin" constant="-30" id="Bud-WQ-nlI"/>
                                     <constraint firstItem="8D4-MW-Ihk" firstAttribute="centerY" secondItem="48K-3s-swt" secondAttribute="centerY" id="Lb4-eG-k7c"/>
                                     <constraint firstItem="VTr-W1-f1E" firstAttribute="trailing" secondItem="1ds-Av-cvg" secondAttribute="trailing" id="PRA-ce-hAy"/>
-                                    <constraint firstItem="61L-yC-nSy" firstAttribute="leading" secondItem="MJO-Q3-DNN" secondAttribute="leading" constant="-4.3333333333333428" id="Pvy-p7-4u0"/>
-                                    <constraint firstAttribute="trailing" secondItem="VTr-W1-f1E" secondAttribute="trailing" constant="20" symbolic="YES" id="dKk-Sx-OYB"/>
-                                    <constraint firstItem="VTr-W1-f1E" firstAttribute="top" secondItem="MJO-Q3-DNN" secondAttribute="top" constant="21" id="fmm-6L-cj6"/>
+                                    <constraint firstItem="61L-yC-nSy" firstAttribute="leading" secondItem="MJO-Q3-DNN" secondAttribute="leading" constant="38" id="Pvy-p7-4u0"/>
+                                    <constraint firstAttribute="trailing" secondItem="VTr-W1-f1E" secondAttribute="trailing" constant="15" id="dKk-Sx-OYB"/>
+                                    <constraint firstItem="VTr-W1-f1E" firstAttribute="top" secondItem="MJO-Q3-DNN" secondAttribute="top" constant="18" id="fmm-6L-cj6"/>
                                     <constraint firstItem="8D4-MW-Ihk" firstAttribute="trailing" secondItem="1ds-Av-cvg" secondAttribute="trailing" id="g6P-qq-vQ8"/>
-                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="centerX" secondItem="1ds-Av-cvg" secondAttribute="centerX" constant="0.5" id="l0q-DF-vyQ"/>
-                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="top" secondItem="61L-yC-nSy" secondAttribute="bottom" constant="5" id="mxB-ps-PyU"/>
+                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="centerX" secondItem="1ds-Av-cvg" secondAttribute="centerX" id="l0q-DF-vyQ"/>
+                                    <constraint firstItem="aN0-Wf-MzH" firstAttribute="top" secondItem="61L-yC-nSy" secondAttribute="bottom" constant="8" id="mxB-ps-PyU"/>
                                     <constraint firstItem="48K-3s-swt" firstAttribute="leading" secondItem="1ds-Av-cvg" secondAttribute="leading" id="nft-2a-XPE"/>
-                                    <constraint firstItem="61L-yC-nSy" firstAttribute="top" secondItem="8D4-MW-Ihk" secondAttribute="bottom" constant="15" id="p5J-dn-cun"/>
-                                    <constraint firstItem="1ds-Av-cvg" firstAttribute="top" secondItem="VTr-W1-f1E" secondAttribute="bottom" constant="10" id="qRe-mp-NbJ"/>
-                                    <constraint firstItem="61L-yC-nSy" firstAttribute="centerX" secondItem="MJO-Q3-DNN" secondAttribute="centerX" id="r9b-w0-xZF"/>
-                                    <constraint firstItem="1ds-Av-cvg" firstAttribute="centerX" secondItem="MJO-Q3-DNN" secondAttribute="centerX" constant="-1.5" id="reK-Wr-AXZ"/>
+                                    <constraint firstItem="61L-yC-nSy" firstAttribute="top" secondItem="8D4-MW-Ihk" secondAttribute="bottom" constant="8" id="p5J-dn-cun"/>
+                                    <constraint firstItem="1ds-Av-cvg" firstAttribute="top" secondItem="VTr-W1-f1E" secondAttribute="bottom" constant="13" id="qRe-mp-NbJ"/>
+                                    <constraint firstItem="61L-yC-nSy" firstAttribute="centerX" secondItem="MJO-Q3-DNN" secondAttribute="centerX" constant="1.3333333333333712" id="r9b-w0-xZF"/>
+                                    <constraint firstItem="1ds-Av-cvg" firstAttribute="centerX" secondItem="MJO-Q3-DNN" secondAttribute="centerX" constant="1" id="reK-Wr-AXZ"/>
                                     <constraint firstItem="1ds-Av-cvg" firstAttribute="top" secondItem="MJO-Q3-DNN" secondAttribute="top" constant="51" id="xav-iK-jrK"/>
                                 </constraints>
                             </view>
@@ -96,9 +96,9 @@
                         <viewLayoutGuide key="safeArea" id="J3T-mS-ADw"/>
                         <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="MJO-Q3-DNN" secondAttribute="bottom" constant="140" id="QID-wH-goU"/>
-                            <constraint firstItem="MJO-Q3-DNN" firstAttribute="top" secondItem="J3T-mS-ADw" secondAttribute="top" constant="176" id="kE0-f9-DK5"/>
-                            <constraint firstItem="MJO-Q3-DNN" firstAttribute="leading" secondItem="J3T-mS-ADw" secondAttribute="leading" constant="41" id="nI7-qd-hvI"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="MJO-Q3-DNN" secondAttribute="bottom" constant="-34" id="QID-wH-goU"/>
+                            <constraint firstItem="MJO-Q3-DNN" firstAttribute="top" secondItem="J3T-mS-ADw" secondAttribute="top" constant="303" id="kE0-f9-DK5"/>
+                            <constraint firstItem="MJO-Q3-DNN" firstAttribute="leading" secondItem="J3T-mS-ADw" secondAttribute="leading" id="nI7-qd-hvI"/>
                             <constraint firstItem="MJO-Q3-DNN" firstAttribute="centerX" secondItem="pai-8M-lW2" secondAttribute="centerX" id="ozs-sJ-ziB"/>
                         </constraints>
                     </view>

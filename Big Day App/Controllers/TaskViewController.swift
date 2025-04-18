@@ -33,8 +33,8 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
             profileImageView.image = savedImage
         }
         
-        nameUserLabel.font = UIFont(name: "Montserrat-ExtraBold", size: 24)
-        nameUser.font = UIFont(name: "Montserrat-ExtraBold", size: 24)
+        nameUserLabel.font = UIFont(name: "Montserrat-ExtraBold", size: 19)
+        nameUser.font = UIFont(name: "Montserrat-ExtraBold", size: 19)
         
         updatePrepo()
         nicknameAttributedString()
@@ -52,7 +52,7 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-            profileImageView.layer.cornerRadius = 77 / 2
+            profileImageView.layer.cornerRadius = 60 / 2
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -117,8 +117,6 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
     func switchEditBtn(task: Task) {
         let storyboard = UIStoryboard(name: "EditMenu", bundle: nil)
         if let editVC = storyboard.instantiateViewController(withIdentifier: "EditViewController") as? EditViewController {
-            editVC.modalPresentationStyle = .overCurrentContext
-            editVC.modalTransitionStyle = .crossDissolve
             editVC.delegate = self
             editVC.taskToEdit = task
             present(editVC, animated: true, completion: nil)

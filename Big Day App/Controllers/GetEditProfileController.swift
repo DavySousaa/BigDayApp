@@ -203,7 +203,6 @@ extension GetEditProfileController: UITableViewDelegate {
         } else if tableView == self.tableViewThemeApp {
             if let cell = tableView.cellForRow(at: indexPath) as? TemaAppCell {
                 selectedIndex = indexPath
-                
                 tableView.reloadData()
             }
         }

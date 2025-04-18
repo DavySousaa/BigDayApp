@@ -14,4 +14,6 @@ class TemaAppCell: UITableViewCell {
     @IBOutlet weak var colorTwo: UIView!
     @IBOutlet weak var nameTheme: UILabel!
     @IBOutlet weak var labelText: UILabel!
+    @IBOutlet weak var checkImage: UIImageView!
+
 }

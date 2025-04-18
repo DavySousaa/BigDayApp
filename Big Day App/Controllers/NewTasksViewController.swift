@@ -26,16 +26,16 @@ class NewTasksViewController: UIViewController {
         navigationItem.hidesBackButton = true
 
         textUP.font = UIFont(name: "Montserrat-ExtraBold", size: 30)
-        let fullText = "Nova tarefa para \nseu Big Day!"
+        let fullText = "Nova tarefa \npara o seu \nBig Day!"
         let attributedString = NSMutableAttributedString(string: fullText)
         
-        textUP.numberOfLines = 2
+        textUP.numberOfLines = 3
         textUP.textAlignment = .center
         textUP.lineBreakMode = .byWordWrapping
         
         let bigDayColor = UIColor(hex: "#77D36A")
         
-        let range = (fullText as NSString).range(of: "seu Big Day!")
+        let range = (fullText as NSString).range(of: "Big Day!")
         attributedString.addAttribute(.foregroundColor, value: bigDayColor, range: range)
         
         textUP.attributedText = attributedString
