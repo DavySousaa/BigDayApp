@@ -19,7 +19,7 @@ class FirstScreenViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         
         
-        textMainLabel.font = UIFont(name: "Montserrat-ExtraBold", size: 30)
+        textMainLabel.font = UIFont(name: "Montserrat-ExtraBold", size: 28)
         let fullText = "Transformando\ndias comuns em\nBig Day"
         let attributedString = NSMutableAttributedString(string: fullText)
                

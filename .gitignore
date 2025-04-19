@@ -1,0 +1,26 @@
+# Ignorar arquivos do Firebase
+GoogleService-Info.plist
+
+# Xcode
+DerivedData/
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+
+# SwiftPM
+.build/
+Packages/
+
+# macOS
+.DS_Store
+
+# Carthage
+Carthage/Build/
+
+# CocoaPods
+Pods/
+

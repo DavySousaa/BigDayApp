@@ -10,20 +10,40 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var textUp: UILabel!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configEyePassword()
+        configTextUp()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func configTextUp() {
+        textUp.font = UIFont(name: "Montserrat-ExtraBold", size: 30)
+        let fullText = "Bem-vindo \nde volta!"
+        let attributedString = NSMutableAttributedString(string: fullText)
+        
+        textUp.numberOfLines = 2
+        textUp.textAlignment = .center
+        textUp.lineBreakMode = .byWordWrapping
+        
+        let bigDayColor = UIColor(hex: "#77D36A")
+        
+        let range = (fullText as NSString).range(of: "de volta!")
+        attributedString.addAttribute(.foregroundColor, value: bigDayColor, range: range)
+        
+        textUp.attributedText = attributedString
     }
     
     func configEyePassword() {

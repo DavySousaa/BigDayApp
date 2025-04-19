@@ -14,6 +14,7 @@ import FirebaseFirestore
 
 class CreateAccountViewController: UIViewController {
     
+    @IBOutlet weak var textUp: UILabel!
     @IBOutlet var apelidoTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -28,6 +29,7 @@ class CreateAccountViewController: UIViewController {
         self.configDropDown()
         configEyePassword()
         blockType()
+        configTextUp()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -48,6 +50,23 @@ class CreateAccountViewController: UIViewController {
             attributedString.addAttribute(.foregroundColor, value: nameUserColor, range: range)
             destinationVC.nameUser?.attributedText = attributedString
         }
+    }
+    
+    func configTextUp() {
+        textUp.font = UIFont(name: "Montserrat-ExtraBold", size: 30)
+        let fullText = "Crie sua conta \ne comece hoje."
+        let attributedString = NSMutableAttributedString(string: fullText)
+        
+        textUp.numberOfLines = 2
+        textUp.textAlignment = .center
+        textUp.lineBreakMode = .byWordWrapping
+        
+        let bigDayColor = UIColor(hex: "#77D36A")
+        
+        let range = (fullText as NSString).range(of: "e comece hoje.")
+        attributedString.addAttribute(.foregroundColor, value: bigDayColor, range: range)
+        
+        textUp.attributedText = attributedString
     }
 
     
@@ -76,7 +95,6 @@ class CreateAccountViewController: UIViewController {
         genderDropDown.optionArray = ["Masculino","Feminino"]
         self.genderDropDown.arrowSize = 5
         self.genderDropDown.selectedRowColor = .lightGray
-        self.genderDropDown.text = "Masculino"
         
         if genderDropDown.text == "Masculino" {
             doDaPrepo = "Do"
@@ -89,10 +107,9 @@ class CreateAccountViewController: UIViewController {
         let olhoButton = UIButton(type: .custom)
         olhoButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         olhoButton.tintColor = .gray
-        olhoButton.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+        olhoButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         olhoButton.addTarget(self, action: #selector(toggleSenha), for: .touchUpInside)
-
-            // Coloca no lado direito do campo
+        
         passwordTextField.rightView = olhoButton
         passwordTextField.rightViewMode = .always
     }
