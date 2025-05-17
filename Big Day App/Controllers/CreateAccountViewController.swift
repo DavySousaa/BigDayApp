@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import iOSDropDown
 import FirebaseAuth
 import FirebaseFirestore
 
@@ -18,17 +17,13 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet var apelidoTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var genderDropDown: DropDown!
-
-    var doDaPrepo: String = ""
-    
+      
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backBarButtonItem?.tintColor = .black
         navigationItem.backButtonTitle = "Voltar"
-        self.configDropDown()
+
         configEyePassword()
-        blockType()
         configTextUp()
     }
     
@@ -81,8 +76,6 @@ class CreateAccountViewController: UIViewController {
         
         if self.apelidoTextField.text == String.empty() {
             error = "Informe o seu apelido."
-        } else if self.genderDropDown.text == String.empty() {
-            error = "Informe um gênero."
         } else  if self.emailTextField.text == String.empty() {
             error = "Informe o seu e-mail."
         } else  if self.passwordTextField.text == String.empty() {
@@ -91,17 +84,6 @@ class CreateAccountViewController: UIViewController {
         return error
     }
     
-    @objc func configDropDown() {
-        genderDropDown.optionArray = ["Masculino","Feminino"]
-        self.genderDropDown.arrowSize = 5
-        self.genderDropDown.selectedRowColor = .lightGray
-        
-        if genderDropDown.text == "Masculino" {
-            doDaPrepo = "Do"
-        } else {
-            doDaPrepo = "Da"
-        }
-    }
     
     func configEyePassword() {
         let olhoButton = UIButton(type: .custom)
@@ -121,19 +103,12 @@ class CreateAccountViewController: UIViewController {
         let imageName = passwordTextField.isSecureTextEntry ? "eye.slash" : "eye"
         sender.setImage(UIImage(systemName: imageName), for: .normal)
     }
-    func blockType() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(configDropDown))
-        genderDropDown.addGestureRecognizer(tapGesture)
-        genderDropDown.isUserInteractionEnabled = true
-        genderDropDown.inputView = UIView() // evita teclado
-        genderDropDown.tintColor = .clear // remove cursor piscando
-    }
+    
     
     @IBAction func startBtn(_ sender: UIButton) {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         let apelido = apelidoTextField.text ?? ""
-        let gender = genderDropDown.text ?? "Masculino"
 
                 // Cria o usuário no Firebase Authentication
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -148,7 +123,6 @@ class CreateAccountViewController: UIViewController {
             let db = Firestore.firestore()
             db.collection("users").document(user.uid).setData([
                 "nickname": apelido,
-                "gender": gender,
                 "email": email
             ]) { err in
                 if let err = err {

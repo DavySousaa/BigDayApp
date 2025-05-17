@@ -1,7 +1,37 @@
 import UIKit
 import TOCropViewController
 
-class TaskViewController: UIViewController, UINavigationControllerDelegate {
+class TaskViewController: UIViewController, UINavigationControllerDelegate, UITableViewDropDelegate, UITableViewDragDelegate {
+    func tableView(_ tableView: UITableView, itemsForBeginning session: any UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let task = tasks[indexPath.row]
+            let itemProvider = NSItemProvider(object: task.title as NSString)
+            let dragItem = UIDragItem(itemProvider: itemProvider)
+            dragItem.localObject = task
+            return [dragItem]
+    }
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: any UITableViewDropCoordinator) {
+        guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
+
+        coordinator.items.forEach { dropItem in
+            if let sourceIndexPath = dropItem.sourceIndexPath,
+                let task = dropItem.dragItem.localObject as? Task {
+
+                tableView.performBatchUpdates({
+                    tasks.remove(at: sourceIndexPath.row)
+                    tasks.insert(task, at: destinationIndexPath.row)
+
+                    tableView.deleteRows(at: [sourceIndexPath], with: .automatic)
+                    tableView.insertRows(at: [destinationIndexPath], with: .automatic)
+                }, completion: { _ in
+                    self.saveTasks()
+                })
+
+                coordinator.drop(dropItem.dragItem, toRowAt: destinationIndexPath)
+            }
+        }
+    }
+    
     
     //MARK - @IBOutlet
     @IBOutlet var profileImageView: UIImageView!
@@ -14,7 +44,6 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
     //MARK - Var and Lets
     var tasks: [Task] = []
     var nickname = ""
-    var prepoDoDa = ""
     var selectedTaskID: UUID?
 
     //MARK - Life Cycle
@@ -26,7 +55,10 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
         
         tableView.dataSource = self
         tableView.delegate = self
-        
+        tableView.dragInteractionEnabled = true
+        tableView.dragDelegate = self
+        tableView.dropDelegate = self
+
         nickname = UserDefaults.standard.string(forKey: "nickname") ?? "Usuário"
         if let savedImageData = UserDefaults.standard.data(forKey: "profileImageView"),
             let savedImage = UIImage(data: savedImageData) {
@@ -36,9 +68,8 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
         nameUserLabel.font = UIFont(name: "Montserrat-ExtraBold", size: 19)
         nameUser.font = UIFont(name: "Montserrat-ExtraBold", size: 19)
         
-        updatePrepo()
         nicknameAttributedString()
-        prepoAttributedString()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,8 +90,12 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
         if let controller = segue.destination as? EditViewController {
             controller.delegate = self
         }
+        if segue.identifier == "goToShare", let destinationVC = segue.destination as? ShareTasksViewController {
+            destinationVC.tasks = self.tasks
+        }
     }
     
+ 
     //MARK - Funcions
     func nicknameAttributedString() {
         nameUser.text = nickname
@@ -70,16 +105,7 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
         attributedString.addAttribute(.foregroundColor, value: nameUserColor, range: range)
         nameUser.attributedText = attributedString
     }
-    
-    func prepoAttributedString() {
-        var firstText = "Big Day do"
-        if firstText.contains("do") {
-            firstText = firstText.replacingOccurrences(of: "do", with: prepoDoDa)
-        }
-        let attributedString = NSMutableAttributedString(string: firstText)
-        nameUserLabel.attributedText = attributedString
-    }
-    
+        
     func loadTasks() {
         self.tasks = TaskSuportHelper().getTask()
         self.tableView?.reloadData()
@@ -98,20 +124,8 @@ class TaskViewController: UIViewController, UINavigationControllerDelegate {
         dateLabel.text = formatter.string(from: currentDate)
     }
     
-    
     func saveTasks() {
         TaskSuportHelper().addTask(lista: tasks)
-    }
-    
-    func updatePrepo() {
-        if let vc = self.navigationController?.viewControllers.first(where: { $0 is CreateAccountViewController }) as? CreateAccountViewController {
-            if vc.genderDropDown.text == "Feminino" {
-                prepoDoDa = "da"
-            } else {
-                prepoDoDa = "do"
-            }
-        }
-
     }
     
     func switchEditBtn(task: Task) {
@@ -161,12 +175,39 @@ extension TaskViewController: UITableViewDataSource {
                 
         if task.isCompleted {
             cell.imageFill?.image = UIImage(systemName: "checkmark.circle.fill")
+
+            let attributedText = NSAttributedString(
+                string: task.title,
+                attributes: [
+                    .strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                    .foregroundColor: UIColor.darkGray
+                ]
+            )
+            cell.taskText?.attributedText = attributedText
         } else {
             cell.imageFill?.image = UIImage(systemName: "circle")
+
+            let attributedText = NSAttributedString(
+                string: task.title,
+                attributes: [
+                    .strikethroughStyle: 0,
+                    .foregroundColor: UIColor.label
+                ]
+            )
+            cell.taskText?.attributedText = attributedText
         }
-                
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedTask = tasks.remove(at: sourceIndexPath.row)
+        tasks.insert(movedTask, at: destinationIndexPath.row)
+        saveTasks()
+    }
+
 }
 
 extension TaskViewController: UITableViewDelegate {
@@ -174,6 +215,7 @@ extension TaskViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? TaskCell {
             tasks[indexPath.row].isCompleted.toggle()
+            saveTasks()
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
